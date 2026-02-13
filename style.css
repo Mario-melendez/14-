@@ -1,0 +1,122 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(circle at top, #0b1c26, #000);
+  overflow: hidden;
+  color: #fff;
+  cursor: crosshair;
+}
+
+/* INTRO */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  animation: fadeIn 1.5s ease;
+}
+
+.overlay p {
+  font-size: 2rem;
+  opacity: 0.9;
+}
+
+.hint {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  opacity: 0.4;
+  animation: blink 1.5s infinite;
+}
+
+/* CONTENIDO */
+.container {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  padding-top: 20vh;
+}
+
+.hidden { display: none; }
+
+h1 {
+  font-size: 3rem;
+  animation: textIn 1s ease forwards;
+}
+
+.subtext {
+  margin-top: 1rem;
+  opacity: 0.6;
+}
+
+/* PARTÍCULAS */
+.particle {
+  position: absolute;
+  pointer-events: none;
+  animation: fadeFloat 1.5s ease forwards;
+}
+
+/* OBJETOS */
+.collectible {
+  position: absolute;
+  font-size: 1.8rem;
+  cursor: pointer;
+  animation: float 4s ease-in-out infinite;
+  z-index: 4;
+}
+
+/* CORAZONES FONDO */
+#background-hearts {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bg-heart {
+  position: absolute;
+  font-size: 1.5rem;
+  opacity: 0.15;
+  animation: floatHeart linear infinite;
+}
+
+/* ANIMACIONES */
+@keyframes fadeFloat {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(2); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes floatHeart {
+  from { transform: translateY(110vh) scale(0.8); }
+  to { transform: translateY(-20vh) scale(1.2); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes blink {
+  0%,100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
+}
+
+@keyframes textIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
